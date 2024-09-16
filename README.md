@@ -1,1 +1,1 @@
-# Digistar Class 2024 Day 5: JSON Web Token
+# Digistar Class 2024 Day 6: Hands On
