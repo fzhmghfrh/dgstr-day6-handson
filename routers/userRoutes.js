@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const userHandlers = require('../handlers/userHandlers');
+const userHandler = require('../handlers/userHandler');
 const jwtAuth = require('../middlewares/jwt');
 
-router.get('/', jwtAuth, userHandlers.getAllUsers);
-router.get('/:id', userHandlers.getUser);
-// router.post('/', userHandlers.createUser);
-router.post('/', userHandlers.registUser);
-router.put('/:id', userHandlers.updateUser);
-router.delete('/:id', userHandlers.deleteUser);
-router.get('/username/search', userHandlers.searchUser);
-router.post('/login', userHandlers.loginUser);
+router.get('/', jwtAuth, userHandler.getAllUsers);
+router.get('/:id', userHandler.getUser);
+// router.post('/', userHandler.createUser);
+router.post('/', userHandler.registUser);
+router.put('/:id', userHandler.updateUser);
+router.delete('/:id', userHandler.deleteUser);
+router.get('/username/search', userHandler.searchUser);
+router.post('/login', userHandler.loginUser);
 
 module.exports = router;

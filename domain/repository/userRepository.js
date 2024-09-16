@@ -23,7 +23,7 @@ const deleteUserById = async (userId) => {
 
 // Function to search user by username
 const searchUserByUsername = async (username) => {
-    return await User.find({ username: new RegExp(username, 'i') }); // Case-insensitive search
+    return await User.find({ username: new RegExp(username, 'i') });
 };
 
 // Function to update a user by user_id

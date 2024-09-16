@@ -3,7 +3,7 @@ const User = require('../model/userModel');
 const userRepository = require('../repository/userRepository');
 const { v4: uuidv4 } = require('uuid');
 
-const SALT_ROUNDS = 10; // Number of salt rounds for bcrypt
+const SALT_ROUNDS = 10;
 
 const generateUserId = () => {
     return uuidv4();

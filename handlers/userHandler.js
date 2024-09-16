@@ -86,30 +86,10 @@ const searchUser = async (req, res) => {
     }
 };
 
-// const loginUser = async (req, res) => {
-//     try {
-//         const { email, password } = req.body;
-//         const user = await userUsecase.findUserByEmail(email); // Function to find user by email
-//         if (!user) {
-//             return res.status(404).json({ message: 'User not found' });
-//         }
-
-//         const isMatch = await bcrypt.compare(password, user.password);
-//         if (!isMatch) {
-//             return res.status(400).json({ message: 'Invalid credentials' });
-//         }
-
-//         const token = jwt.sign({ user_id: user.user_id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-//         res.status(200).json({ token });
-//     } catch (error) {
-//         res.status(500).json({ message: 'Error logging in', error });
-//     }
-// };
-
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
-        const user = await userUsecase.findUserByEmail(email); // Find user by email
+        const user = await userUsecase.findUserByEmail(email);
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
@@ -122,8 +102,8 @@ const loginUser = async (req, res) => {
         const token = jwt.sign({ user_id: user.user_id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         res.status(200).json({ token });
     } catch (error) {
-        console.error('Error logging in:', error); // Log error to the console
-        res.status(500).json({ message: 'Error logging in', error: error.message }); // Include error message in response
+        console.error('Error logging in:', error);
+        res.status(500).json({ message: 'Error logging in', error: error.message });
     }
 };
 
